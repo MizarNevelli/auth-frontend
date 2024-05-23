@@ -1,7 +1,11 @@
 "use client";
 
 const RegisterPage = () => {
-  return <div>Register page</div>;
+  return (
+    <div className="flex justify-center min-h-screen pt-[100px]">
+      Register page
+    </div>
+  );
 };
 
 export default RegisterPage;

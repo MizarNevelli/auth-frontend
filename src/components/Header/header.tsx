@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import { NavLinks } from "./menuNavLinks";
+import { NavLinks } from "../Menu/menuNavLinks";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
-export const Header = () => {
+const Header = () => {
   const path = usePathname();
 
   return (
@@ -23,3 +23,4 @@ export const Header = () => {
     </header>
   );
 };
+export default Header;
