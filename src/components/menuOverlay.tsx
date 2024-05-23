@@ -8,7 +8,7 @@ import { CiDark, CiLight } from "react-icons/ci";
 import { useTheme } from "next-themes";
 
 export const MenuOverlay = () => {
-  const { menuOpen, setMenuOpen } = useAppStore((state) => state);
+  const { menuOpen, setMenuOpen } = useAppStore<any>((state) => state);
   const { theme, setTheme } = useTheme();
 
   return menuOpen ? (

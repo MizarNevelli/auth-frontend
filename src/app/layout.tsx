@@ -20,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider defaultTheme="light">
-          <main className="relative dark:bg-slate-800 dark:text-gray-100">
+        <ThemeProvider defaultTheme="dark">
+          <main className="relative">
             <MenuOverlay />
             <Header />
             <div className="min-h-[100dvh]">{children}</div>

@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 import Link from "next/link";
 import { headerLinks } from "@/constants";
-import { useAppStore } from "@/stores/appStore";
+import { AppStoreTypes, useAppStore } from "@/stores/appStore";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { CiLight, CiDark } from "react-icons/ci";
 import { useEffect, useState } from "react";
 
 export const NavLinks = () => {
-  const { menuOpen, setMenuOpen } = useAppStore((state) => state);
+  const { menuOpen, setMenuOpen } = useAppStore<AppStoreTypes>(
+    (state) => state
+  );
   const path = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-
-  console.log(theme);
 
   useEffect(() => setMounted(true), []);
 
@@ -82,5 +82,3 @@ export const NavLinks = () => {
     </div>
   );
 };
-
-export async function getServerSideProps(context) {}
