@@ -7,7 +7,7 @@ import Link from "next/link";
 const LoginPage = () => {
   return (
     <div className="flex justify-center min-h-screen pt-[100px]">
-      <Card className="my-auto">
+      <Card className="my-auto md:w-[35vw]">
         <Card.Header>Sign In</Card.Header>
 
         <Card.Content>
@@ -17,7 +17,7 @@ const LoginPage = () => {
           </div>
 
           <div className="my-5 text-center">
-            <button className="rounded-xl w-full bg-slate-100 py-2 font-semibold">
+            <button className="rounded-xl w-full bg-slate-100 py-2 font-semibold dark:bg-slate-700">
               Login to your account
             </button>
           </div>

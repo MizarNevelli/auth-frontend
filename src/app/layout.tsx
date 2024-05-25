@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import { MenuOverlay } from "../components/Menu/menuOverlay";
-import Header from "@/components/Header/header";
+import { MainWrap } from "@/components/mainWrap";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +20,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider defaultTheme="dark" attribute="class">
-          <main className="relative">
-            <MenuOverlay />
-            <Header />
-            <div className="min-h-[100dvh]">{children}</div>
-          </main>
+          <MainWrap>{children}</MainWrap>
         </ThemeProvider>
       </body>
     </html>

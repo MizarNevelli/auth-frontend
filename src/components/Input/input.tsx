@@ -13,7 +13,7 @@ export const Input = ({ label, inputClassName, ...props }: InputProps) => {
       <input
         className={clsx(
           inputClassName,
-          "outline-none shadow-sm rounded-lg py-1 px-2 border border-slate-200"
+          "outline-none shadow-sm rounded-lg py-2 px-3 border border-slate-200"
         )}
         {...props}
       />
