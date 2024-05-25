@@ -24,9 +24,7 @@ export interface NewUserTypes {
 const RegisterPage = () => {
   const [user, setUser] = useState<NewUserTypes>({});
 
-  const { success, error, setSuccess, setError } = useAppStore(
-    (state) => state
-  );
+  const { setSuccess, setError } = useAppStore((state) => state);
 
   const onSubmitRegistration = (e: React.FormEvent) => {
     e.preventDefault();
