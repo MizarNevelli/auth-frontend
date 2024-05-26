@@ -16,7 +16,7 @@ import { useState } from "react";
 // };
 
 export interface NewUserTypes {
-  name?: string;
+  userName?: string;
   email?: string;
   password?: string;
 }
@@ -56,7 +56,7 @@ const RegisterPage = () => {
                   setUser((oldState) => {
                     return {
                       ...oldState,
-                      name: e.target.value,
+                      userName: e.target.value,
                     };
                   });
                 }}

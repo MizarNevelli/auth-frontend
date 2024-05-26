@@ -1,12 +1,19 @@
 import { create } from "zustand";
+
+interface UserTypes {
+  id: string;
+  email: string;
+  userName: string;
+  accessToken?: string;
+}
 export interface UserStoreTypes {
-  user?: any;
+  user?: UserTypes | null;
   setUser: (value: any) => void;
 }
-export const useAppStore = create<UserStoreTypes>((set) => ({
+export const useUserStore = create<UserStoreTypes>((set) => ({
   user: null,
 
-  setUser: (value: any) => {
+  setUser: (value: UserTypes) => {
     set({ user: value });
   },
 }));

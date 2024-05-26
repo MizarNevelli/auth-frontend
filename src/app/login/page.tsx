@@ -6,6 +6,8 @@ import Link from "next/link";
 import { AppStoreTypes, useAppStore } from "@/stores/appStore";
 import { userLogin } from "@/fetch/user";
 import { useState } from "react";
+import { useUserStore } from "@/stores/userStore";
+import { useRouter } from "next/navigation";
 
 export interface LoginDataTypes {
   email?: string;
@@ -15,13 +17,16 @@ export interface LoginDataTypes {
 const LoginPage = () => {
   const { setError } = useAppStore<AppStoreTypes>((state) => state);
   const [loginData, setLoginData] = useState<LoginDataTypes>({});
+  const { setUser } = useUserStore((state) => state);
+  const router = useRouter();
 
   const onSubmitLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
     userLogin(loginData)
       .then((result) => {
-        console.log("LOGGED IN", result);
+        setUser(result.data);
+        router.push("/");
       })
       .catch((err) => {
         setError(err.response.data.message);
