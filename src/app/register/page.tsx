@@ -1,7 +1,7 @@
 "use client";
 
-import Card from "@/components/Card/card";
-import { Input } from "@/components/Input/input";
+import Card from "@/components/Card/Card";
+import { Input } from "@/components/Input/Input";
 import { registerNewUser } from "@/fetch/user";
 import { useAppStore } from "@/stores/appStore";
 import Link from "next/link";
@@ -101,7 +101,7 @@ const RegisterPage = () => {
           </div>
 
           <div className="text-xs mt-5">
-            Already have an account yet? Go to{" "}
+            Already have an account? Go to{" "}
             <Link className="underline" href={"/login"}>
               Login page
             </Link>

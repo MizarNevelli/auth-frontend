@@ -10,6 +10,7 @@ export const Input = ({ label, inputClassName, ...props }: InputProps) => {
   return (
     <div className="flex flex-col">
       <label className="text-sm">{label}:</label>
+
       <input
         className={clsx(
           inputClassName,

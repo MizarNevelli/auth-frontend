@@ -1,3 +1,4 @@
+"use client";
 import { AppStoreTypes, useAppStore } from "@/stores/appStore";
 import { AiOutlineClose } from "react-icons/ai";
 

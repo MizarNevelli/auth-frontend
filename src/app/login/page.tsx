@@ -1,7 +1,7 @@
 "use client";
 
-import { Input } from "@/components/Input/input";
-import Card from "@/components/Card/card";
+import { Input } from "@/components/Input/Input";
+import Card from "@/components/Card/Card";
 import Link from "next/link";
 import { AppStoreTypes, useAppStore } from "@/stores/appStore";
 import { userLogin } from "@/fetch/user";
@@ -32,6 +32,7 @@ const LoginPage = () => {
         setError(err.response.data.message);
       });
   };
+
   return (
     <div className="flex justify-center min-h-screen pt-[100px]">
       <Card className="my-auto md:w-[35vw]">
@@ -76,7 +77,7 @@ const LoginPage = () => {
           <div className="text-xs mt-5">
             Do not have an account yet? Go to{" "}
             <Link className="underline" href={"/register"}>
-              register
+              Register page
             </Link>
           </div>
         </Card.Content>

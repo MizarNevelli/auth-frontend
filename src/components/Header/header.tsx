@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { NavLinks } from "../Menu/menuNavLinks";
+import { NavLinks } from "../Menu/MenuNavLinks";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
