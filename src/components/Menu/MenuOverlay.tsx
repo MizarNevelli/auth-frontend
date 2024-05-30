@@ -1,15 +1,16 @@
 "use client";
 
-import { useAppStore } from "@/stores/appStore";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { headerLinks } from "@/constants";
 import { CiDark, CiLight } from "react-icons/ci";
 import { useTheme } from "next-themes";
+import { useContext } from "react";
+import { SettingsContext } from "@/SettingContext";
 
 export const MenuOverlay = () => {
-  const { menuOpen, setMenuOpen } = useAppStore<any>((state) => state);
   const { theme, setTheme } = useTheme();
+  const { menuOpen, setMenuOpen } = useContext(SettingsContext);
 
   return menuOpen ? (
     <motion.div

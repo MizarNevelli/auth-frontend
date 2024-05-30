@@ -1,11 +1,13 @@
 "use client";
 
+import { SettingsContext } from "@/SettingContext";
+import { ErrorAlert } from "@/components/Alerts/ErrorAlert";
+import { SuccessAlert } from "@/components/Alerts/SuccessAlert";
 import Card from "@/components/Card/Card";
 import { Input } from "@/components/Input/Input";
 import { registerNewUser } from "@/fetch/user";
-import { useAppStore } from "@/stores/appStore";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 // const validateEmail = (email: string) => {
 //   return String(email)
@@ -24,13 +26,13 @@ export interface NewUserTypes {
 const RegisterPage = () => {
   const [user, setUser] = useState<NewUserTypes>({});
 
-  const { setSuccess, setError } = useAppStore((state) => state);
+  const { error, success, setSuccess, setError } = useContext(SettingsContext);
 
   const onSubmitRegistration = (e: React.FormEvent) => {
     e.preventDefault();
 
     registerNewUser(user)
-      .then((result) => {
+      .then(() => {
         setSuccess(
           "Congratulations! Your request is successfully completed. Check your email!"
         );
@@ -40,7 +42,11 @@ const RegisterPage = () => {
       });
   };
 
-  return (
+  return error ? (
+    <ErrorAlert error={error} />
+  ) : success ? (
+    <SuccessAlert msg={success} />
+  ) : (
     <div className="flex justify-center min-h-screen pt-[100px]">
       <Card className="my-auto md:w-[35vw]">
         <Card.Header>Register new account </Card.Header>

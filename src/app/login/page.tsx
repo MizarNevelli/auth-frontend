@@ -3,11 +3,12 @@
 import { Input } from "@/components/Input/Input";
 import Card from "@/components/Card/Card";
 import Link from "next/link";
-import { AppStoreTypes, useAppStore } from "@/stores/appStore";
 import { userLogin } from "@/fetch/user";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useUserStore } from "@/stores/userStore";
 import { useRouter } from "next/navigation";
+import { SettingsContext } from "@/SettingContext";
+import { ErrorAlert } from "@/components/Alerts/ErrorAlert";
 
 export interface LoginDataTypes {
   email?: string;
@@ -15,7 +16,7 @@ export interface LoginDataTypes {
 }
 
 const LoginPage = () => {
-  const { setError } = useAppStore<AppStoreTypes>((state) => state);
+  const { error, setError } = useContext(SettingsContext);
   const [loginData, setLoginData] = useState<LoginDataTypes>({});
   const { setUser } = useUserStore((state) => state);
   const router = useRouter();
@@ -33,7 +34,9 @@ const LoginPage = () => {
       });
   };
 
-  return (
+  return error ? (
+    <ErrorAlert error={error} />
+  ) : (
     <div className="flex justify-center min-h-screen pt-[100px]">
       <Card className="my-auto md:w-[35vw]">
         <Card.Header>Sign In</Card.Header>

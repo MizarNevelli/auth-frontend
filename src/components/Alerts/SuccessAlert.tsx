@@ -1,9 +1,10 @@
 "use client";
-import { AppStoreTypes, useAppStore } from "@/stores/appStore";
+import { SettingsContext } from "@/SettingContext";
+import { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 export const SuccessAlert = ({ msg }: { msg: string }) => {
-  const { setSuccess } = useAppStore<AppStoreTypes>((state) => state);
+  const { setSuccess } = useContext(SettingsContext);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center absolute bg-black bg-opacity-50">

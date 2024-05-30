@@ -3,19 +3,17 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 import Link from "next/link";
 import { headerLinks } from "@/constants";
-import { AppStoreTypes, useAppStore } from "@/stores/appStore";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { CiLight, CiDark } from "react-icons/ci";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SettingsContext } from "@/SettingContext";
 
 export const NavLinks = () => {
-  const { menuOpen, setMenuOpen } = useAppStore<AppStoreTypes>(
-    (state) => state
-  );
   const path = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { menuOpen, setMenuOpen } = useContext(SettingsContext);
 
   useEffect(() => setMounted(true), []);
 
