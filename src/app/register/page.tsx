@@ -34,7 +34,7 @@ const RegisterPage = () => {
     registerNewUser(user)
       .then(() => {
         setSuccess(
-          "Congratulations! Your request is successfully completed. Check your email!"
+          "Your request is successfully completed. Check your email!"
         );
       })
       .catch((err) => {
@@ -68,10 +68,13 @@ const RegisterPage = () => {
                 }}
                 type="text"
                 label="User Name"
+                placeholder="Choose your name"
+
               />
               <Input
                 type="email"
                 label="Email"
+                placeholder="Insert your email"
                 onChange={(e) => {
                   // const isValid = validateEmail(e.target.value);
                   // console.log("isValid", isValid);
@@ -86,6 +89,7 @@ const RegisterPage = () => {
               <Input
                 type="password"
                 label="Password"
+                placeholder="Choose your password"
                 onChange={(e) => {
                   setUser((oldState) => {
                     return {
@@ -97,6 +101,7 @@ const RegisterPage = () => {
               />
               <div className="my-5 text-center">
                 <button
+                  name="register"
                   type="submit"
                   className="rounded-xl w-full bg-slate-100 py-2 font-semibold dark:bg-slate-700"
                 >

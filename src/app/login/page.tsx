@@ -57,6 +57,7 @@ const LoginPage = () => {
               }}
               type="email"
               label="Email"
+              placeholder="Insert your email"
             />
             <Input
               onChange={(e) => {
@@ -69,9 +70,13 @@ const LoginPage = () => {
               }}
               type="password"
               label="Password"
+              placeholder="Insert your password"
             />
             <div className="my-5 text-center">
-              <button className="rounded-xl w-full bg-slate-100 py-2 font-semibold dark:bg-slate-700">
+              <button
+                name="login"
+                className="rounded-xl w-full bg-slate-100 py-2 font-semibold dark:bg-slate-700"
+              >
                 Login to your account
               </button>
             </div>
