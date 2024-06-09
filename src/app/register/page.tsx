@@ -33,9 +33,7 @@ const RegisterPage = () => {
 
     registerNewUser(user)
       .then(() => {
-        setSuccess(
-          "Your request is successfully completed. Check your email!"
-        );
+        setSuccess("Your request is successfully completed. Check your email!");
       })
       .catch((err) => {
         setError(err.response.data.message);
@@ -69,12 +67,13 @@ const RegisterPage = () => {
                 type="text"
                 label="User Name"
                 placeholder="Choose your name"
-
+                data-testid="registerUserName"
               />
               <Input
                 type="email"
                 label="Email"
                 placeholder="Insert your email"
+                data-testid="registerUserMail"
                 onChange={(e) => {
                   // const isValid = validateEmail(e.target.value);
                   // console.log("isValid", isValid);
@@ -90,6 +89,7 @@ const RegisterPage = () => {
                 type="password"
                 label="Password"
                 placeholder="Choose your password"
+                data-testid="registerUserPsw"
                 onChange={(e) => {
                   setUser((oldState) => {
                     return {

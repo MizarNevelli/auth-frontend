@@ -58,6 +58,7 @@ const LoginPage = () => {
               type="email"
               label="Email"
               placeholder="Insert your email"
+              data-testid="loginEmail"
             />
             <Input
               onChange={(e) => {
@@ -71,6 +72,7 @@ const LoginPage = () => {
               type="password"
               label="Password"
               placeholder="Insert your password"
+              data-testid="loginPsw"
             />
             <div className="my-5 text-center">
               <button
